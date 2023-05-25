@@ -1,0 +1,30 @@
+	<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale-1.0">
+    <title>Nodejs</title>
+</head>
+<body>
+    <p>
+        <h1>Nodejs</h1>
+    </p>
+    <hr>
+    <form id="form">
+        <h2>choose mode</h2>
+            <input type="submit" value="Submit" id="btn">
+            <input type="radio" id="on" name="Detect" value="on">Detect
+            <input type="radio" id="off" name="Detect" value="off">No_Detect
+        </form>
+
+        <form action="shine" method="get">
+            <h2>Detecting</h2>
+              <br>
+	      <h2>adc_value:</h2>
+	      <div id="myDiv" data-value="${myValue}"></div>
+        </form>
+<div id="response"></div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>

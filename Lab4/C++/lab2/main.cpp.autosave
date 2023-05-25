@@ -1,0 +1,85 @@
+#include "export.h"
+#include "unexport.h"
+#include "direction.h"
+#include "value.h"
+#include <string>
+using std::stoi;
+
+int main(int argc, char *argv[]){
+    //setting the pin
+    //pin 13
+    gpio_export(397);
+    gpio_set_dir(397, "out");
+
+    //pin 19
+    gpio_export(429);
+    gpio_set_dir(429, "out");
+
+    //pin 31
+    gpio_export(298);
+    gpio_set_dir(298, "out");
+
+    //pin 40
+    gpio_export(393);
+    gpio_set_dir(393, "out");
+
+    if(strcmp(argv[1],"LED1")==0){
+        if(strcmp(argv[2],"on")==0){
+            gpio_set_value(397,1);
+	    std::cout<<"LED1 on"<<endl;
+        }
+        else if(strcmp(argv[2],"off")==0){
+            gpio_set_value(397,0);
+	    std::cout<<"LED1 off"<<endl;
+        }
+    }
+    else if(strcmp(argv[1],"LED2")==0){
+        if(strcmp(argv[2],"on")==0){
+            gpio_set_value(429,1);
+	    std::cout<<"LED2 on"<<endl;
+        }
+        else if(strcmp(argv[2],"off")==0){
+            gpio_set_value(429,0);
+	    std::cout<<"LED2 off"<<endl;
+        }
+    }
+    else if(strcmp(argv[1],"LED3")==0){
+        if(strcmp(argv[2],"on")==0){
+            gpio_set_value(298,1);
+	    std::cout<<"LED3 on"<<endl;
+        }
+        else if(strcmp(argv[2],"off")==0){
+            gpio_set_value(298,0);
+	    std::cout<<"LED3 off"<<endl;
+        }
+    }
+    else if(strcmp(argv[1],"LED4")==0){
+        if(strcmp(argv[2],"on")==0){
+            gpio_set_value(393,1);
+	    std::cout<<"LED4 on"<<endl;
+        }
+        else if(strcmp(argv[2],"off")==0){
+            gpio_set_value(393,0);
+	    std::cout<<"LED4 off"<<endl;
+        }
+    }
+    else if(strcmp(argv[1],"Mode_Shine")==0){
+        int num=stoi(std::string(argv[2]));
+
+        for(int i=0;i<num;i++){
+            std::cout<<i<<endl;
+            //first group
+            gpio_set_value(397,1);
+            gpio_set_value(429,1);
+            gpio_set_value(298,0);
+            gpio_set_value(393,0);
+            sleep(1);
+            //second group
+            gpio_set_value(397,0);
+            gpio_set_value(429,0);
+            gpio_set_value(298,1);
+            gpio_set_value(393,1);
+            sleep(1);
+        }
+    }
+}
